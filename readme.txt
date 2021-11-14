@@ -1,7 +1,7 @@
 This Project is base on the Jupyter Notebook, Python 3.9
 Sorry for the rest of the libararies versions. We didn't left the record.
-Most of the data is base on the FinanceDataReader and Pandasdatareader
-
+Most of the data is base on the FinanceDataReader and Pandasdatareader / But you have to download the data files too.
+Please run the code starting from the DataCollecting
 For the API file, you have to set the anaconda to 32bit.
 API는 대신증권을 바탕으로 작성하였습니다.
 
