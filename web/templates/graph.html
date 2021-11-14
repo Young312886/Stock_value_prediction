@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> GRAPH </title>
+    <script type="text/javascript"
+    src="{{url_for('static',filename='js/dygraph.js')}}"></script>
+    <link rel="stylesheet" src="{{url_for('static', filename='css/dygraph.css')}}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        p {
+        font-size: 30px;
+        font-weight:700;
+        }
+        .title1{
+        position: ;
+        font-size: 13pt;
+        font-weight: bold;
+        }
+        .dygraph-legend {
+        background-color: rgba(211, 211, 211, 0.5) !important;
+        padding: 4px;
+        border: 1px solid #000;
+        border-radius: 8px;
+        box-shadow: 4px 4px 4px #888;
+        pointer-events: none;
+        width: 150px;
+        float:right;
+        padding-top:-30px;
+        }
+        .off-screen {
+            display : none;
+        }
+    </style>
+    <style type="text/css">
+         a:link { text-decoration:none; color:#000000;}
+         a:visited { text-decoration:none;color:#000000;}
+         a:active {text-decoration:none; color:#000000;}
+         a:hover { text-decoration:none; color:#000000;}
+    </style>
+    <script>
+        function canvas_display1(){
+            $('#can1').toggleClass('off-screen')
+        }
+        function canvas_display2(){
+            $('#can2').toggleClass('off-screen')
+        }
+        function canvas_display3(){
+            $('#can3').toggleClass('off-screen')
+        }
+        function canvas_display4(){
+            $('#can4').toggleClass('off-screen')
+        }
+        function checkbox_display1(){
+            $('#defaultCheck1').toggleClass('off-screen')
+        }
+    </script>
+</head>
+<body>
+    <div>{{a}}</div>
+    <div class="title1">
+        <table>
+            <tr>
+                <td width="550" align="left" class="navbar navbar-light bg-light">
+                  <div class="container-fluid">
+                    <a class="ubionLogo" href="http://www.ubion.co.kr/">
+                      <img src="{{url_for('static', filename='img/ubionLogo.png')}}" alt=""  height="24" class="d-inline-block align-text-top">
+                    </a>
+                  </div>
+                </td>
+                <td width="550" align="center"> GRAPH </td>
+                <td width="550" align="right"><a style="text-decoration:none" href="https://docs.google.com/presentation/d/1CR2xTRlm6QV8RF8hkMnDV6EFMsW3r6OB/edit?usp=sharing&ouid=103514070345780904449&rtpof=true&sd=true"> Team 6 </a> </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <div class="top">
+                            <button onclick="canvas_display1()">2020</button>
+                            <button onclick="canvas_display2()">2008</button>
+                            <button onclick="canvas_display3()">2020_C </button>
+                            <button onclick="canvas_display4()">2020_CB </button>
+                    </div>
+                </td>
+            </tr>
+            <tr id="can1">
+                <td
+                <div class="top">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            WTI
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gas
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gold
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Bdiy
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            New_cases
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Vaccination
+                          </label>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Dollar
+                          </label>
+                        </div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Bitcoin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            SnP
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Open
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            High
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Low
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Volume
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Energy
+                          </label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p align="center">
+                    2020년 그래프 (new_cases, vaccination, Bitcoin 추가)
+                    </p>
+                    <div id="graphdiv2" style="width:1200px; height:400px; margin-left:150px">
+                    </div>
+                    <script type="text/javascript">
+                    g2 = new Dygraph(
+                        document.getElementById("graphdiv2"),
+                        "{{url_for('static', filename='csv/df_2020_Final.csv')}}", // path to CSV file
+                        {
+                        rollPeriod: 14,
+                        labelsSeparateLines: true,
+                         legend: 'always',
+                        }           // options
+                    );
+                    </script>
+                </td>
+            </tr>
+            <tr id="can2">
+                <td>
+                    <div class="top">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            WTI
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gas
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gold
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Bdiy
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            New_cases
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Vaccination
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Dollar
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Bitcoin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            SnP
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Open
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            High
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Low
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Volume
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Energy
+                          </label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p align="center">
+                    2008년 그래프 (new_cases, vaccination, Bitcoin 제외)
+                    </p>
+                    <div id="graphdiv1"
+                      style="width:1200px; height:400px; margin-left:150px">
+                    </div>
+                    <script type="text/javascript">
+                    g2 = new Dygraph(
+                        document.getElementById("graphdiv1"),
+                        "{{url_for('static', filename='csv/df_2008_Final.csv')}}", // path to CSV file
+                        {
+                        rollPeriod: 14,
+                        labelsSeparateLines: true,
+                         legend: 'always',
+                        }           // options
+                    );
+                    </script>
+                </td>
+            </tr>
+            <tr id="can3">
+                <td>
+                    <div class="top">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            WTI
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gas
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gold
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Bdiy
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            New_cases
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Vaccination
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Dollar
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Bitcoin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            SnP
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Open
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            High
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Low
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Volume
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Energy
+                          </label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p align="center">
+                    2020년 그래프_C (코로나 데이터 제외)
+                    </p>
+                    <div id="graphdiv3"
+                      style="width:1200px; height:400px; margin-left:150px">
+                    </div>
+                    <script type="text/javascript">
+                    g2 = new Dygraph(
+                        document.getElementById("graphdiv3"),
+                        "{{url_for('static', filename='csv/df_2020_new.csv')}}", // path to CSV file
+                        {
+                        rollPeriod: 14,
+                        labelsSeparateLines: true,
+                         legend: 'always',
+                        }           // options
+                    );
+                    </script>
+                </td>
+            </tr>
+            <tr  id="can4">
+                <td>
+                    <div class="top">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            WTI
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gas
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Gold
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Bdiy
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            New_cases
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Vaccination
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Dollar
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Bitcoin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            SnP
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Open
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            High
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Low
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Volume
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Energy
+                          </label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p align="center">
+                    2020년 그래프_CB (코로나, 비트코인 데이터 제외)
+                    </p>
+                    <div id="graphdiv4"
+                      style="width:1200px; height:400px; margin-left:150px">
+                    </div>
+                    <script type="text/javascript">
+                    g2 = new Dygraph(
+                        document.getElementById("graphdiv4"),
+                        "{{url_for('static', filename='csv/df_2020_new2.csv')}}", // path to CSV file
+                        {
+                        rollPeriod: 14,
+                        labelsSeparateLines: true,
+                         legend: 'always',
+                        }           // options
+                    );
+                    </script>
+                </td>
+            </tr>
+        </table>
+
+    <div>
+        <canvas id="bt2020"></canvas>
+        <canvas id="bt2008"></canvas>
+        <canvas id="btco2020"></canvas>
+        <canvas id="btcobi2020"></canvas>
+    </div>
+</body>
+</html>

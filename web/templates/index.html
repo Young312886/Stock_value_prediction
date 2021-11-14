@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> HOME </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    #title{
+        font-size: 23pt;
+        font-weight: 700;
+        height: 50px;
+        background: lightgray;
+    }
+    .title1{
+        position: ;
+        font-size: 13pt;
+        font-weight: bold;
+    }
+    </style>
+    <style type="text/css">
+         a:link { text-decoration:none; color:#000000;}
+         a:visited { text-decoration:none;color:#000000;}
+         a:active {text-decoration:none; color:#000000;}
+         a:hover { text-decoration:none; color:#000000;}
+    </style>
+</head>
+<body>
+    <div class="title1">
+        <table>
+            <tr>
+                <td width="550" align="left" class="navbar navbar-light bg-light">
+                  <div class="container-fluid">
+                    <a class="ubionLogo" href="http://www.ubion.co.kr/">
+                      <img src="{{url_for('static', filename='img/ubionLogo.png')}}" alt=""  height="24" class="d-inline-block align-text-top">
+                    </a>
+                  </div>
+                </td>
+                <td width="550" align="center"> Stock Prediction Project</td>
+                <td width="550" align="right"><a style="text-decoration:none " href="https://docs.google.com/presentation/d/1CR2xTRlm6QV8RF8hkMnDV6EFMsW3r6OB/edit?usp=sharing&ouid=103514070345780904449&rtpof=true&sd=true"> Team 6 </a> </td>
+            </tr>
+        </table>
+    </div>
+    <div style = "margin: 100px 500px 100px 500px;">
+        <table>
+            <tr>
+                <td colspan="2"  align="center"  id="title">
+                    S&P 500 Energy Sector
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <button type="button" onclick="location.href='/graph'" class="btm_image" id="img_btn"><img src="{{url_for('static', filename='img/graphIcon.jpg')}}" width="250" height="250"></button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button type="button" onclick="location.href='/modeling'" class="btm_image" id="img_btn"><img src="{{url_for('static', filename='img/modelingIcon.jpg')}}" width="250" height="250"></button>
+                    </div>
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <div>
+                        <button type="button" onclick="location.href='/api'" class="btm_image" id="img_btn"><img src="{{url_for('static', filename='img/apiIcon.png')}}" width="250" height="250"></button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a href="https://github.com/Young312886/Stock_value_prediction">
+                            <button type="button" class="btm_image" id="img_btn"><img src="{{url_for('static', filename='img/githubIcon.png')}}" width="250" height="250"></button>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
